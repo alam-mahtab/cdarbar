@@ -21,7 +21,7 @@ def login(request):
             auth.login(request, user)
             print('login')
             #return redirect('film_festival')
-            workon hecvreturn render(request,'film-festival.html')
+            return render(request,'film-festival.html')
         else:
             messages.info(request, 'invalid credential')
             print('input  not taken')   
