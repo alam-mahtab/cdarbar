@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'cfw1!%b$_h$(^1h0^mxwnil-t_0-eo(nqdan6-=4ges!i_33+c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -78,10 +78,10 @@ WSGI_APPLICATION = 'cdarbar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'cdarbar',
         'USER' : 'postgres',
-        'PASSWORD' : '1234' ,
+        'PASSWORD' : 'postgres' ,
         'HOST' : 'localhost',
     }
 }
