@@ -1,0 +1,320 @@
+/* This is Custum style Sheet */
+*{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.bg-header,.bg-theme-color{
+	background-color: #DDD4CB;
+}
+
+.text-theme-color{
+	color: #DDD4CB;
+}
+
+/* ================= header =================== */
+header{
+	padding: 1.2rem 0;
+}
+
+header .navbar{
+	padding: 0;
+}
+
+/* .main-wrapper{
+	padding-top: 20px;
+	padding-bottom: 30px;
+} */
+
+header .navbar .navbar-nav .nav-item{
+	margin-left: 50px;
+}
+
+header .navbar .fa-search{
+	font-size: 20px;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+	color: #ffffff;
+}
+
+header .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border: 0px solid;
+}
+
+header .nav-tabs .nav-item.show .nav-link, .nav-tabs .nav-link.active {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0);
+    border: 0px solid #ffffff;
+}
+
+.banner {
+    background-image: url(../../images/banner-top.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: center;
+    height: 580px;
+    /* margin-top: -21px; */
+    width: 100%;
+}
+
+.banner .banner-text{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	margin-top: 14%;
+}
+
+.banner .banner-text div{
+    color: white;
+    font-size: 50px;
+    line-height: 60px;
+    font-weight: 600;
+}
+
+.banner .banner-text div a.btn{
+	padding: 10px 35px;
+}
+
+
+.user-tab{
+	border:1px solid #ffffff;
+	border-radius: 50%;
+	width: 50px;
+	height: 50px;
+	float: right;
+}
+
+.user-tab .nav-link{
+	padding: 12px;
+	color: #ffffff;
+}
+
+.user-tab .dropdown-toggle::after{
+	display: none;
+}
+
+.nav-tabs.user-tab  .dropdown-menu.show{
+	top: 10px!important;
+	left: -60px!important;
+	border-radius: 5px;
+	padding: 15px 10px;
+}
+
+.bg-rgb-dark{
+	background: linear-gradient(0deg,#f5f5f5,#fff);
+}
+
+section{
+	padding: 30px 0;
+	border-bottom: 2px solid #f5f5f5;
+}
+
+section .owl-carousel{
+	padding: 15px 0;
+}
+
+.owl-carousel p{
+	margin-bottom: 0;
+}
+
+.owl-nav{
+	position: absolute;
+	top: 45%;
+	width: 100%;
+}
+
+.owl-carousel .owl-nav button.owl-next span, .owl-carousel .owl-nav button.owl-prev span{
+	background-color: white;
+	padding: 0 10px;
+	font-size: 35px;
+	line-height: 10px;
+}
+
+.owl-prev{
+	position: absolute;
+	left: -45px;
+}
+
+.owl-next{
+	position: absolute;
+	right: -45px;
+}
+
+.owl-theme .owl-nav [class*=owl-]:hover{
+	background-color: white !important;
+	color: rgb(0, 0, 0) !important;
+}
+
+.owl-carousel .owl-nav button:focus{
+	outline: 0px solid #000;
+}
+
+p.text-muted.text-uppercase{
+	font-size: 14px;
+}
+
+
+.footer{
+	background-color: #DDD4CB;
+	padding: 10px;
+}
+
+.footer .nav a.nav-link{
+	color:#ffffff;	
+}
+
+/* =============== sign in ================ */
+section.sign-in{
+	margin: 4% auto;
+	border-bottom: 0px solid;
+}
+.divider{
+	width: 100%;
+	height: 2px;
+	background-color: #f5f5f5;
+}
+
+/* =============== sign up ================ */
+section.sign-up{
+	margin: 4% auto;
+	border-bottom: 0px solid;
+}
+
+/* =============== welcome ================ */
+section.welcome{
+	padding: 54px 0;
+}
+
+section.welcome .welcome-user{
+	width: 100px;
+	height: 100px;
+	padding: 30px 25px;
+	color: #ffffff;
+	margin: auto;
+	border-radius: 50%;
+}
+
+@media screen and (max-width:600px){
+	section.welcome h3{
+		font-size: 20px;
+	}
+	section.welcome h4{
+		font-size: 13px;
+	}
+	section.welcome button.btn-lg{
+		padding: .25rem .5rem;
+		font-size: .875rem;
+		line-height: 1.5;
+		border-radius: .2rem;
+	}
+}
+
+
+/* =============== welcome ================ */
+section.personal-profile{
+	padding: 54px 0;
+}
+
+section.personal-profile .welcome-user{
+	width: 100px;
+	height: 100px;
+	padding: 30px 25px;
+	color: #ffffff;
+	border-radius: 50%;
+}
+
+.font-22{
+	    font-size: 22px;
+}
+
+/* ================== media query for responsive index ================== */
+@media screen and (min-width:600px) and (max-width:800px){
+	.banner{
+		height: 350px;
+	}
+}
+@media screen and (max-width:600px){
+	.h2, h2 {
+		font-size: 1.3rem;
+	}
+
+	.item p.text-muted.text-uppercase {
+		font-size: 10px;
+	}
+	.item p b{
+		font-size: 11px;
+	}
+
+	.item p:last-child{
+		font-size: 7px !important;
+	}
+
+	.footer .nav a.nav-link {
+		padding: 0.1rem 0.5rem;
+		font-size: 6px;
+	}
+
+	.banner {
+		height: 160px;
+	}
+
+	.banner .banner-text{
+		margin-top: 12%;
+	}
+
+	.banner .banner-text div{
+		font-size: 20px;
+		line-height: 30px;
+	}
+
+	.banner .banner-text div a.btn{
+		padding: .25rem .5rem;
+		font-size: .875rem;
+		line-height: 1.5;
+		border-radius: .2rem;
+	}
+}
+
+
+/* ========================== about ========================== */
+.about-bg{
+	position: relative;
+	overflow: hidden;
+}
+.about-bg::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	background-size: 100%;
+	background-position: center;
+	background-image: url(../../images/about-bg.jpg);
+	transform: rotateY(180deg);
+   }
+
+   .inquireis{
+	background: #ddd4cb;
+	width: 175px;
+	height: 175px;
+	padding-top: 50px;
+	text-align: center;
+	font-size: 25px;
+	color: white;
+	border-radius: 50%;
+	margin: 45px auto;
+   }
+   .inquireis p{
+	   margin-bottom: 0;
+	   font-size: 20px;
+   }
+   .w-fill{
+	   width: -webkit-fill-available;
+   }
+   .font-15{
+	   font-size: 15px;
+   }
+
+   .ws-3{
+	   word-spacing: 3px;
+   }

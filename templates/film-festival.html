@@ -1,5 +1,5 @@
 {% load static %}
-
+{% static 'images/course' as baseUrl %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,15 +13,15 @@
   <meta name="keywords" content="">
   <meta name="description" content="">
   
-  <meta property="og:image" content="assets/images/logo.png">
+  <meta property="og:image" content="{% static 'assets/images/logo.png'%}">
   <meta name="theme-color" content="#eeeeee">
 
   <!-- favicon -->
-  <link rel="icon" href="images/favicon.ico">
+  <link rel="icon" href="{% static 'images/favicon.ico'%}">
 
   <!-- Stylesheets -->
-  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/fontawesome5/css/all.min.css"/>
+  <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css' %}">
+  <link rel="stylesheet" href="{% static 'assets/fontawesome5/css/all.min.css' %} "/>
 
   <!-- Custom Stylesheets -->
   <link rel="stylesheet" href="{% static 'assets/css/style.css' %} ">
@@ -60,7 +60,7 @@
 			<a class="nav-link" href="schedule">Schedule</a>
 		   </li>
             <li class="nav-item">
-              <a class="nav-link" href="/">About</a>
+              <a class="nav-link" href="home">About</a>
             </li> 
             <li class="nav-item">
                <a class="nav-link" href="#modelId" data-toggle="modal">Contact Us</a>
@@ -72,16 +72,15 @@
       <div class="col-lg-2 col-sm-4 col-4">
         <ul class="nav nav-tabs user-tab">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">KM</a>
-            <div class="dropdown-menu">
-              {% if user.is_auhenticated %}
-			  <a class="dropdown-item" href="logout">Hello {{user.first_name}}</a>
-			  {% else %}
-			  <a class="dropdown-item" href="signup">Personal Profile</a>
-			  {% endif %}
+            
+			<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">KM</a>
+			<div class="dropdown-menu">
+              <a class="dropdown-item" href="signup">Personal Profile</a>
               <a class="dropdown-item" href="#">Course Page</a>
               <a class="dropdown-item" href="#">Build Your Talent Page</a>
             </div>
+		 
+
           </li>
         </ul>
       </div>
@@ -140,7 +139,7 @@
 	  <div class="row">
 		<div class="col-12 col-lg-6 text-justify">
 		  <h2>About</h2>
-		  <p> {{About}}</p>
+		  <!--<p> About</p> -->
 		  <p>
 			  Cinedarbaar is non-profit organization based in india established in 2009. At Cine Darbaar we are interested in running programmes at a very grassroot level and are 
 		  </p>
@@ -222,7 +221,7 @@
 		    <a class="nav-link" href="index.html"><img src="{% static 'images/logo_preview_rev_1.png'%}" alt=""></a>
 		</li>
 		<li class="nav-item">
-		    <a class="nav-link" href="/">About Us</a>
+		    <a class="nav-link" href="home">About Us</a>
 		</li>
             <li class="nav-item">
                 <a class="nav-link" href="#modelId" data-toggle="modal">Contact Us</a>

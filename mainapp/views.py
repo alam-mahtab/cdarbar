@@ -60,10 +60,7 @@ def signup_submission(request):
 
 
 def signup(request):
-    if request == 'POST':
-        pass
-    else:
-        return render(request, 'sign_up.html')
+    return render(request, 'sign_up.html')
 def forgetpassword(request):
     return render(request, 'forget-password.html')
 def schedule(request):
