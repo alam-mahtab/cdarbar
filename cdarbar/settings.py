@@ -77,10 +77,10 @@ WSGI_APPLICATION = 'cdarbar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'cdarbar',
         'USER' : 'postgres',
-        'PASSWORD' : 'postgres' ,
+        'PASSWORD' : '1234' ,
         'HOST' : 'localhost',
     }
 }
@@ -126,7 +126,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS =[
     os.path.join(BASE_DIR,'static')
 ]
-STATIC_ROOT = os.path.join(BASE_DIR, 'asset')
+STATIC_ROOT = os.path.join(BASE_DIR, '/static')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
