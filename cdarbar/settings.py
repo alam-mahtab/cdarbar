@@ -31,7 +31,6 @@ ALLOWED_HOSTS = ['*']
 
 
 # Application definition
-
 INSTALLED_APPS = [
     'mainapp',
     'django.contrib.admin',
@@ -78,7 +77,7 @@ WSGI_APPLICATION = 'cdarbar.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'cdarbar',
         'USER' : 'postgres',
         'PASSWORD' : 'postgres' ,
