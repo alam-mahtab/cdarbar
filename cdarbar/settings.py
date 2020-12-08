@@ -46,6 +46,7 @@ MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware', #add whitenoise
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
+    'ssl_redirect.middleware.SSLRedirectMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -73,6 +74,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'cdarbar.wsgi.application'
 
 
+
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -88,6 +90,7 @@ DATABASES = {
     }
 }
 
+SECURE_SSL_REDIRECT = True
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
