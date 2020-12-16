@@ -25,9 +25,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'cfw1!%b$_h$(^1h0^mxwnil-t_0-eo(nqdan6-=4ges!i_33+c'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,6 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+    'sslserver',
+
+    #Social authentication
+    #All auth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+
+    #Provider
+    'allauth.socialaccount.providers.facebook',
+    'allauth.socialaccount.providers.google',
+    'allauth.socialaccount.providers.twitter',
+
 ]
 
 MIDDLEWARE = [
@@ -90,7 +104,7 @@ DATABASES = {
     }
 }
 
-SECURE_SSL_REDIRECT = True
+#SECURE_SSL_REDIRECT = True
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
@@ -140,3 +154,16 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 #activate dajngo heroku
 #django_heroku.settigs(locals())
+
+SITE_ID = 1
+
+LOGIN_REDIRECT_URL = "/"
+
+# SMTP Configuration
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER = 'alammahtab869@gmail.com'
+EMAIL_HOST_PASSWORD = 'Mahtab1234'

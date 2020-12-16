@@ -1,8 +1,9 @@
+from django.contrib.auth.views import PasswordChangeView
 from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib import messages
-from .models import Highlight, Schedule1,Schedule2,Schedule3, ExtendedUser
+from .models import Highlight, Schedule1,Schedule2,Schedule3, ExtendedUser, festivalurl, Inquiry
 from django.contrib.auth.models import User, auth
 # Create your views here.
 def film_festival(request):
@@ -21,7 +22,7 @@ def login(request):
             auth.login(request, user)
             print('login')
             #return redirect('film_festival')
-            return render(request,'film-festival.html')
+            return redirect('film-festival')
         else:
             messages.info(request, 'invalid credential')
             print('input  not taken')   
@@ -61,8 +62,13 @@ def signup_submission(request):
 
 def signup(request):
     return render(request, 'sign_up.html')
-def forgetpassword(request):
-    return render(request, 'forget-password.html')
+# def forgetpassword(request):
+#     if request.method == 'POST':
+#         return render(request, PasswordChangeView)
+        
+#     else:
+#         print("Here")
+#         return render(request, 'forget-password.html')
 def schedule(request):
     schs = Schedule1.objects.all()
     schds = Schedule2.objects.all()
@@ -72,5 +78,33 @@ def schedule(request):
 
 def logout(request):
     auth.logout(request)
+    return redirect('/')
+
+def festiveurl(request):
+    youtubelink = festivalurl.objects.latest()
+    print(youtubelink)
+    return render(request, {'youtubelink' : youtubelink})
+
+def contact(request):
+    if request.method == 'POST':
+       first_name = request.POST['first_name']
+       email = request.POST['email']
+       Details = request.POST['Details']
+       interview = request.POST.get('interview', False)
+       work_or_commision = request.POST.get('work_or_commision', False)
+       other = request.POST.get('other', False)
+       if request.POST.get('interview').is_selected() : 
+           inquiry = Inquiry.objects.create(first_name=first_name, email=email , Details=Details,interview=True, work_or_commision=False, other=False)
+           inquiry.save();
+           print('INTERVIEW')
+       elif work_or_commision in contact:
+           inquiry = Inquiry(first_name=first_name, email=email , Details=Details,interview=False, work_or_commision=True, other=False).save()
+           print('WORK-OR-COMMISION')
+       elif other == True:
+           inquiry = Inquiry.objects.create(first_name=first_name, email=email , Details=Details,interview=False, work_or_commision=False, other=True).save()
+           print('OTHER')  
+       return render(request, 'schedule.html')
+    else:
+        return redirect(request, 'film-festival.html', {Inquiry:'model'})
     
 

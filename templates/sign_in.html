@@ -1,4 +1,5 @@
 {% load static %}
+{% load socialaccount %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -52,13 +53,13 @@
               </a>
             </li>
             <li class="nav-item">
-			<a class="nav-link" href="#">Festival</a>
+			<a class="nav-link" href="{{youtubelink}}">Festival</a>
 		   </li> 
 		   <li class="nav-item">
 			<a class="nav-link" href="schedule">Schedule</a>
 		   </li>
 		   <li class="nav-item">
-			<a class="nav-link" href="home">About</a>
+			<a class="nav-link" href="/">About</a>
 		   </li> 
 		   <li class="nav-item">
 			<a class="nav-link" href="#modelId" data-toggle="modal">Contact Us</a>
@@ -108,8 +109,8 @@
             <div class="text-center m-3">
               <p><b>or Log in with</b></p>
               <p>
-                <a href="" class="btn btn-outline-danger"><i class="fab fa-google" aria-hidden="true"></i></a>
-                <a href="" class="btn btn-outline-primary"><i class="fab fa-facebook" aria-hidden="true"></i></a>
+                <a href="{% provider_login_url "google"%}" class="btn btn-outline-danger"><i class="fab fa-google" aria-hidden="true"></i></a>
+                <a href="{% provider_login_url "facebook" method="oauth2" %}" class="btn btn-outline-primary"><i class="fab fa-facebook" aria-hidden="true"></i></a>
                 <a href="" class="btn btn-outline-dark"><i class="fab fa-apple" aria-hidden="true"></i></a>
               </p>
             </div>
@@ -138,13 +139,13 @@
 			  <a class="nav-link" href="index.html"><img src="{% static 'images/logo_preview_rev_1.png'%}" alt=""></a>
 		   </li>
 		   <li class="nav-item">
-			  <a class="nav-link" href="home">About Us</a>
+			  <a class="nav-link" href="/">About Us</a>
 		   </li>
 			<li class="nav-item">
 			    <a class="nav-link" href="#modelId" data-toggle="modal">Contact Us</a>
 			</li>
 			<li class="nav-item">
-			    <a class="nav-link" href="#">Festival</a>
+			    <a class="nav-link" href="{{youtubelink}}">Festival</a>
 			</li>
 		 </ul>
 	    </div>
@@ -159,11 +160,11 @@
 				 </div>
 			 </li>
 			<li class="nav-item">
-			    <a class="nav-link" href="#">
+			    <a class="nav-link" href="https://www.facebook.com/cinedarbaar/">
 				 <i class="fab fa-facebook" aria-hidden="true"></i>
 			    </a>
 			</li>
-			<li class="nav-item">
+	<!---		<li class="nav-item">
 			    <a class="nav-link" href="#">
 				 <i class="fab fa-twitter" aria-hidden="true"></i>
 			    </a>
@@ -182,7 +183,7 @@
 			    <a class="nav-link" href="#">
 				 <i class="fab fa-pinterest" aria-hidden="true"></i>
 			    </a>
-			</li>
+			</li>  -->
 		 </ul>
 	    </div>
 	  </div>
