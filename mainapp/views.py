@@ -90,17 +90,17 @@ def contact(request):
        first_name = request.POST['first_name']
        email = request.POST['email']
        Details = request.POST['Details']
-       interview = request.POST.get('interview', False)
-       work_or_commision = request.POST.get('work_or_commision', False)
-       other = request.POST.get('other', False)
-       if request.POST.get('interview').is_selected() : 
-           inquiry = Inquiry.objects.create(first_name=first_name, email=email , Details=Details,interview=True, work_or_commision=False, other=False)
-           inquiry.save();
+       #interview = request.POST.get('interview', False)
+       #work_or_commision = request.POST.get('work_or_commision', False)
+       #other = request.POST.get('other', False)
+       if request.POST.get('interview', False) == True: 
+           inquiry = Inquiry(first_name=first_name, email=email , Details=Details,interview=True, work_or_commision=False, other=False).save()
+          # inquiry.save();
            print('INTERVIEW')
-       elif work_or_commision in contact:
+       elif request.POST.get('work_or_commision', False) == True:
            inquiry = Inquiry(first_name=first_name, email=email , Details=Details,interview=False, work_or_commision=True, other=False).save()
            print('WORK-OR-COMMISION')
-       elif other == True:
+       elif request.POST.get('other', False) == True:
            inquiry = Inquiry.objects.create(first_name=first_name, email=email , Details=Details,interview=False, work_or_commision=False, other=True).save()
            print('OTHER')  
        return render(request, 'schedule.html')
