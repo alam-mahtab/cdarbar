@@ -3,12 +3,12 @@ from django.shortcuts import redirect, render
 from django.http import HttpResponse
 from django.contrib.auth import authenticate
 from django.contrib import messages
-from .models import Highlight, Schedule1,Schedule2,Schedule3, ExtendedUser, festivalurl, Inquiry
+from .models import AboutContent, Highlight, Schedule1,Schedule2,Schedule3, ExtendedUser, festivalurl, Inquiry
 from django.contrib.auth.models import User, auth
 # Create your views here.
 def film_festival(request):
     high = Highlight.objects.all()
-    About = "This is the about content"
+    About = AboutContent.objects.last()
     return render(request, 'film-festival.html', {'About':About,'high' : high})
 
 def login(request):
@@ -80,31 +80,68 @@ def logout(request):
     auth.logout(request)
     return redirect('/')
 
+# def festiveurl(request):
+#     youtubelink = festivalurl.objects.latest()
+#     print(youtubelink)
+#     return render(request, {'youtubelink' : youtubelink})
+
 def festiveurl(request):
-    youtubelink = festivalurl.objects.latest()
-    print(youtubelink)
-    return render(request, {'youtubelink' : youtubelink})
+    print("nfunffjkfnfkfjn")
+    # youtubelink = festivalurl.objects.latest()
+    youtubelink = festivalurl.objects.filter().first()
+   # print(youtubelink.siteUrl)
+    #return render(request,{'youtubelink':youtubelink.siteUrl})
+    #return render(request, youtubelink.siteUrl)
+    return redirect(youtubelink.siteUrl)
 
 def contact(request):
     if request.method == 'POST':
        first_name = request.POST['first_name']
        email = request.POST['email']
        Details = request.POST['Details']
-       #interview = request.POST.get('interview', False)
-       #work_or_commision = request.POST.get('work_or_commision', False)
-       #other = request.POST.get('other', False)
-       if request.POST.get('interview', False) == True: 
-           inquiry = Inquiry(first_name=first_name, email=email , Details=Details,interview=True, work_or_commision=False, other=False).save()
-          # inquiry.save();
-           print('INTERVIEW')
-       elif request.POST.get('work_or_commision', False) == True:
-           inquiry = Inquiry(first_name=first_name, email=email , Details=Details,interview=False, work_or_commision=True, other=False).save()
-           print('WORK-OR-COMMISION')
-       elif request.POST.get('other', False) == True:
-           inquiry = Inquiry.objects.create(first_name=first_name, email=email , Details=Details,interview=False, work_or_commision=False, other=True).save()
-           print('OTHER')  
+       interview = request.POST.get('interview','False')
+       print(interview)
+       if interview == 'checkedValue':
+           inquiry = Inquiry(first_name=first_name, email=email , Details=Details,interview=True, work_or_commision=False, other=False)
+           inquiry.save();
+           print('interview is scheduled')
+       work_or_commision = request.POST.get('work_or_commision','False')
+       print(work_or_commision)
+       if work_or_commision == 'checkedValue':
+           inquiry = Inquiry(first_name=first_name, email=email , Details=Details,interview=False, work_or_commision=True, other=False)
+           inquiry.save();
+           print('work is scheduled')
+       other = request.POST.get('other','False')
+       print(other)
+       if other == 'checkedValue':
+           inquiry = Inquiry(first_name=first_name, email=email , Details=Details,interview=True, work_or_commision=False, other=False)
+           inquiry.save();
+           print('other is scheduled')
+      # contact = Inquiry(first_name=first_name, email=email, Details=Details, interview=interview, work_or_commision=work_or_commision, other=other).save()
+       #contact.save();
+       #print('Done')
        return render(request, 'schedule.html')
-    else:
-        return redirect(request, 'film-festival.html', {Inquiry:'model'})
+
+# def contact(request):
+#     if request.method == 'POST':
+#        first_name = request.POST['first_name']
+#        email = request.POST['email']
+#        Details = request.POST['Details']
+#        #interview = request.POST.get('interview', False)
+#        #work_or_commision = request.POST.get('work_or_commision', False)
+#        #other = request.POST.get('other', False)
+#        if request.POST.get('interview', False) == True: 
+#            inquiry = Inquiry(first_name=first_name, email=email , Details=Details,interview=True, work_or_commision=False, other=False).save()
+#           # inquiry.save();
+#            print('INTERVIEW')
+#        elif request.POST.get('work_or_commision', False) == True:
+#            inquiry = Inquiry(first_name=first_name, email=email , Details=Details,interview=False, work_or_commision=True, other=False).save()
+#            print('WORK-OR-COMMISION')
+#        elif request.POST.get('other', False) == True:
+#            inquiry = Inquiry.objects.create(first_name=first_name, email=email , Details=Details,interview=False, work_or_commision=False, other=True).save()
+#            print('OTHER')  
+#        return render(request, 'schedule.html')
+#     else:
+#         return redirect(request, 'film-festival.html', {Inquiry:'model'})
     
 

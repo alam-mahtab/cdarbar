@@ -55,7 +55,7 @@
               </a>
             </li>
             <li class="nav-item">
-			<a href=" login" class="nav-link">Festival</a>
+			<a href="festiveurl" class="nav-link">Festival</a>
 		   </li> 
 		   <li class="nav-item">
 			<a class="nav-link" href="schedule">Schedule</a>
@@ -111,7 +111,7 @@
         <p>
           Online Iran Film Festival
         </p>
-        <a href="https://www.youtube.com/results?search_query=iranfilmfestival" class="btn btn-lg btn-light">Watch Now</a>
+        <a href="festiveurl" class="btn btn-lg btn-light">Watch Now</a>
     </div>
     </div>
   </div>
@@ -151,7 +151,7 @@
 		  <h2>About</h2>
 		  <!--<p> About</p> -->
 		  <p>
-			  Cinedarbaar is non-profit organization based in india established in 2009. At Cine Darbaar we are interested in running programmes at a very grassroot level and are 
+				{{About.plain}}
 		  </p>
 		  <p>
 			  Cinedarbaar is non-profit organization based in india established in 2009. At Cine Darbaar we are interested in running programmes at a very grassroot level and are 
@@ -202,13 +202,13 @@
 			</form>
 		</div>
 		<div class="col-12 col-lg-3">
-			<h5>Mobile No:</h5>
+			<h4>Mobile No:</h4>
 			<p>9873259068</p>
 			<br>
-			<h5>Send Us An Email On:</h5>
+			<h4>Send Us An Email On:</h4>
 			<p>info.cinedarbaar@gmail.com</p>
 			<br>
-			<h5>Address:</h5>
+			<h4>Address:</h4>
 			<p>E-358 2nd  Floor Greater Kailsh Part 2 New Delhi 110048</p>
 		</div>
 	  </div>
@@ -230,7 +230,7 @@
       <div class="col-lg-6 col-sm-12 col-12">
         <ul class="nav justify-content-xl-between justify-content-lg-between justify-content-sm-center justify-content-around">
 		<li class="nav-item">
-		    <a class="nav-link" href="index.html"><img src="{% static 'images/logo_preview_rev_1.png'%}" alt=""></a>
+		    <a class="nav-link" href="/"><img src="{% static 'images/logo_preview_rev_1.png'%}" alt=""></a>
 		</li>
 		<li class="nav-item">
 		    <a class="nav-link" href="/">About Us</a>
@@ -239,7 +239,7 @@
                 <a class="nav-link" href="#modelId" data-toggle="modal">Contact Us</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="{{youtubelink.siteUrl}}">Festival</a>
+                <a class="nav-link" href="festiveurl">Festival</a>
             </li>
         </ul>
       </div>
@@ -302,8 +302,8 @@
 	<div class="modal-dialog modal-md" role="document">
 		<div class="modal-content">
 			<div class="modal-header">
-				<h5 class="modal-title text-center w-fill"><p>inquireis:</p>
-					<b>Elizabeth</b></h5>
+				<h4 class="modal-title text-center w-fill"><p>inquireis:</p>
+					<b>Elizabeth</b></h4>
 					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 						<span aria-hidden="true">&times;</span>
 					</button>
@@ -317,20 +317,19 @@
 					  <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="Your Email" aria-describedby="helpId">
 					</div>
 					<div class="form-check form-check-inline">
-						<label class="form-check-label font-15 ws-3">
-							Type Of Inquiries
-							<input class="form-check-input" type="checkbox" name="" id="" value="checkedValue"> Interview
-							<input class="form-check-input" type="checkbox" name="" id="" value="checkedValue"> Work or Commission
-							<input class="form-check-input" type="checkbox" name="" id="" value="checkedValue"> Other
+					<label class="form-check-label font-15 ws-3">
+					<h5>   Type Of Inquiries  </h5>
+							<input class="form-check-input" type="checkbox" name="interview" id="interview" value="checkedValue"> Interview
+							<input class="form-check-input" type="checkbox" name="work_or_commision" id="work_or_commision" value="checkedValue"> Work or Commission
+							<input class="form-check-input" type="checkbox" name="other" id="other" value="checkedValue"> Other
 						</label>
 					</div>
-					
-					<div class="form-group">
+				 	<div class="form-group">
 					<label for=""></label>
 					  <textarea class="form-control" name="Details" id="Details" rows="5" placeholder="Details"></textarea>
 					</div>
 					<hr>
-					<button type="button" class="btn btn-md bg-theme-color float-right">Send</button>
+					<button type="submit" class="btn btn-md bg-theme-color float-right">Send</button>
 				</form>
 			</div>
 			

@@ -41,6 +41,9 @@ class ExtendedUser(models.Model):
     dateofbirth = models.DateField()
     phone = models.CharField(max_length=20)
 
+class AboutContent(models.Model):
+    plain = models.TextField()
+
 class festivalurl(models.Model):
     siteUrl = models.URLField(max_length=200, null=True, blank=True)
                         #   validators=

@@ -13,6 +13,7 @@ urlpatterns = [
     path('schedule', views.schedule, name='schedule'),
     path('logout', views.logout, name='logout'),
     path('contact', views.contact, name='contact'),
+    path('festiveurl', views.festiveurl, name='festiveurl'),
 
     path('reset_password/', auth_views.PasswordResetView.as_view(), name='password_reset'),
     path('reset_password_sent', auth_views.PasswordResetDoneView.as_view(), name='password_reset_done'),
